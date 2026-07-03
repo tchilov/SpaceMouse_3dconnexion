@@ -303,8 +303,10 @@ class SettingsWindow(QMainWindow):
         reader.button_pressed.connect(self.live_bar.update_button)
         reader.button_pressed.connect(self.desktop_page.on_button_press)
 
-    def set_profile_name(self, name, wm_class=None):
-        self.live_bar.set_profile(name, wm_class=wm_class)
+    def set_profile_name(self, name, wm_class=None, is_passthrough_profile=None):
+        self.live_bar.set_profile(
+            name, wm_class=wm_class, is_passthrough_profile=is_passthrough_profile
+        )
 
     def update_config(self, config):
         self.desktop_page.update_config(config)

@@ -548,14 +548,14 @@ class LivePreviewBar(QWidget):
         self.device_label.setText(name)
         self.device_label.setVisible(True)
 
-    def set_profile(self, name, wm_class=None):
+    def set_profile(self, name, wm_class=None, is_passthrough_profile=None):
         # Display-only alias for the catch-all profile — the config file
         # still stores it as "default" so the daemon's fallback path keeps
         # working. Other profile names pass through unchanged.
         display = name
         if name == "default":
             display = "Desktop"
-        elif (name == "passthrough_apps") and (wm_class is not None):
+        elif is_passthrough_profile and (wm_class is not None):
             display = wm_class
         self.profile_label.setText(f"Profile: {display}")
 

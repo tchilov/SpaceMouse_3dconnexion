@@ -486,9 +486,10 @@ class SpaceMouseApp:
 
     def _on_window_changed(self, wm_class, profile_name):
         self._saved_profile = profile_name
-        self.settings_window.set_profile_name(profile_name, wm_class=wm_class)
-
         is_3d_app = self._is_passthrough_profile(profile_name)
+        self.settings_window.set_profile_name(
+            profile_name, wm_class=wm_class, is_passthrough_profile=is_3d_app
+        )
 
         # GUI focus path is owned by _on_gui_focused — do not touch the daemon here
         if self._gui_has_focus:
