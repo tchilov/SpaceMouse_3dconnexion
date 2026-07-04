@@ -556,7 +556,7 @@ class LivePreviewBar(QWidget):
         if name == "default":
             display = "Desktop"
         elif is_passthrough_profile and (wm_class is not None):
-            # if the name is like "org.freecad.FreeCAD", show only the last part
+            # if the name is e.g. "org.freecad.FreeCAD", only display "FreeCAD"
             display = wm_class.split(".")[-1]
             display = display[0].upper() + display[1:]
         self.profile_label.setText(f"Profile: {display}")
